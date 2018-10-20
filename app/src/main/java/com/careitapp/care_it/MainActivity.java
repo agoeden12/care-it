@@ -21,6 +21,6 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.button)
     public void openCamera(){
-        startActivity(new Intent(this, Vision.class));
+        startActivity(new Intent(this, ManualPill.class));
     }
 }
