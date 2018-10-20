@@ -15,6 +15,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.support.design.widget.TabLayout;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 import java.util.Calendar;
 import java.util.Objects;
@@ -48,6 +51,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         createToolbar();
         createTabs();
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -66,7 +70,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void createToolbar(){
-        homeToolbar.setNavigationIcon(R.drawable.ic_menu_white_24dp);
+        homeToolbar.setNavigationIcon(R.drawable.nav_drawer);
         homeToolbar.setNavigationOnClickListener(view -> homeDrawer.openDrawer(GravityCompat.START));
         homeToolbar.setTitleTextColor(getResources().getColor(R.color.white));
         homeToolbar.setTitle(R.string.app_name);
