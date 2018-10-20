@@ -3,6 +3,7 @@ package com.careitapp.care_it;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
 import butterknife.BindView;
@@ -17,6 +18,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ButterKnife.bind(this);
+
+        Button btn2 = (Button) findViewById(R.id.button2);
+
+        btn2.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                startActivity(new Intent(MainActivity.this, ManualPill.class));
+            }
+        });
     }
 
     @OnClick(R.id.button)
