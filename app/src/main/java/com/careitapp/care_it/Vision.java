@@ -19,10 +19,13 @@ import com.google.android.gms.vision.text.TextRecognizer;
 
 import java.io.IOException;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class Vision extends AppCompatActivity {
 
-    SurfaceView cameraView;
-    TextView textView;
+    @BindView(R.id.surface_view) SurfaceView cameraView;
+    @BindView(R.id.text_view) TextView textView;
     CameraSource cameraSource;
     final int RequestCameraPermissionID = 1001;
 
@@ -49,9 +52,12 @@ public class Vision extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.vision);
 
-        cameraView = (SurfaceView) findViewById(R.id.surface_view);
-        textView = (TextView) findViewById(R.id.text_view);
+        ButterKnife.bind(this);
 
+        startCamera();
+    }
+
+    public void startCamera(){
         TextRecognizer textRecognizer = new TextRecognizer.Builder(getApplicationContext()).build();
         if (!textRecognizer.isOperational()) {
             Log.w("Vision", "Detector dependencies are not yet available");
@@ -66,18 +72,18 @@ public class Vision extends AppCompatActivity {
             cameraView.getHolder().addCallback(new SurfaceHolder.Callback() {
                 @Override
                 public void surfaceCreated(SurfaceHolder holder) {
-                   try {
-                       if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)
-                       {
-                           ActivityCompat.requestPermissions(Vision.this,
-                                   new String[]{Manifest.permission.CAMERA},
-                                   RequestCameraPermissionID);
-                           return;
-                       }
-                       cameraSource.start(cameraView.getHolder());
-                   } catch (IOException e) {
-                       e.printStackTrace();
-                   }
+                    try {
+                        if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)
+                        {
+                            ActivityCompat.requestPermissions(Vision.this,
+                                    new String[]{Manifest.permission.CAMERA},
+                                    RequestCameraPermissionID);
+                            return;
+                        }
+                        cameraSource.start(cameraView.getHolder());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
 
                 @Override
@@ -101,17 +107,14 @@ public class Vision extends AppCompatActivity {
                 public void receiveDetections(Detector.Detections<TextBlock> detections) {
                     final SparseArray<TextBlock> items = detections.getDetectedItems();
                     if (items.size()!=0) {
-                        textView.post(new Runnable() {
-                            @Override
-                            public void run() {
-                                StringBuilder stringBuilder = new StringBuilder();
-                                for (int i=0; i<items.size();i++) {
-                                   TextBlock item = items.valueAt(i);
-                                   stringBuilder.append(item.getValue());
-                                   stringBuilder.append("\n");
-                                }
-                                textView.setText(stringBuilder.toString());
+                        textView.post(() -> {
+                            StringBuilder stringBuilder = new StringBuilder();
+                            for (int i=0; i<items.size();i++) {
+                                TextBlock item = items.valueAt(i);
+                                stringBuilder.append(item.getValue());
+                                stringBuilder.append("\n");
                             }
+                            textView.setText(stringBuilder.toString());
                         });
                     }
                 }
