@@ -13,7 +13,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class splash_activity extends AppCompatActivity {
+public class SplashActivity extends AppCompatActivity {
 
     @BindView(R.id.splash_frame)
     ConstraintLayout splashFrame;
@@ -21,25 +21,20 @@ public class splash_activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash_activity);
+        setContentView(R.layout.activity_splash);
 
         ButterKnife.bind(this);
 
         startRunnable();
     }
 
-    private Boolean isUserLoggedIn(){
-        if (FirebaseAuth.getInstance().getCurrentUser() != null)
-            return true;
-        else
-            return false;
-    }
-
     private void startRunnable(){
         Handler handler = new Handler();
         handler.postDelayed(() -> {
-            if(isUserLoggedIn())
-                startActivity(new Intent(this, MainActivity.class));
+            if(FirebaseAuth.getInstance().getCurrentUser() != null) {
+                startActivity(new Intent(this, HomeActivity.class));
+                finish();
+            }
             else
                 setFragment(new LoginFragment());
         }, 2500);

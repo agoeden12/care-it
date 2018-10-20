@@ -13,9 +13,6 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Objects;
@@ -62,7 +59,7 @@ public class LoginFragment extends Fragment {
             firebaseAuth.signInWithEmailAndPassword(
                     emailEditText.getText().toString().trim(),
                     passwordEditText.getText().toString().trim()).addOnCompleteListener(task -> {
-                startActivity(new Intent(getContext(), MainActivity.class));
+                startActivity(new Intent(getContext(), HomeActivity.class));
                 Objects.requireNonNull(getActivity()).finish();
             });
         else
@@ -75,7 +72,7 @@ public class LoginFragment extends Fragment {
             firebaseAuth.createUserWithEmailAndPassword(
                     emailEditText.getText().toString().trim(),
                     passwordEditText.getText().toString().trim()).addOnCompleteListener(task -> {
-                startActivity(new Intent(getContext(), MainActivity.class));
+                startActivity(new Intent(getContext(), HomeActivity.class));
                 Objects.requireNonNull(getActivity()).finish();
             });
         else
