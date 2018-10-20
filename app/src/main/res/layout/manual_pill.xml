@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        //android:backgroundTint="@color/darkRed"
+        //android:textColorHint="@color/darkRed">
+
+        <EditText
+            android:id="@+id/medname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            /**android:backgroundTint="@color/darkRed"
+            //android:drawableStart="@drawable/ic_mail_outline_primary_24dp"
+            //android:fontFamily="@font/encodesans_extralight"
+            android:hint="@string/loginScreenEmailEditTextHint"
+            android:inputType="textEmailAddress"/>
+            //android:textColor="#000000"
+            //android:textColorHint="@color/darkRed" />
+    </android.support.design.widget.TextInputLayout>
+</android.support.constraint.ConstraintLayout>
