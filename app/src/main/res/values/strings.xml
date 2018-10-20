@@ -12,4 +12,5 @@
     <string name="login_email_hint">Email</string>
     <string name="login_password_hint">Password</string>
     <string name="login_button">Login</string>
+    <string name="signup_button">Create Account</string>
 </resources>

@@ -16,7 +16,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class ManualPill extends AppCompatActivity {
-    @BindView(R.id.medname)
+    @BindView(R.id.pillname)
     EditText pillName;
 
 

@@ -57,6 +57,19 @@ public class LoginFragment extends Fragment {
     }
 
     @OnClick(R.id.login_button)
+    public void userLogin(){
+        if (!TextUtils.isEmpty(emailEditText.getText().toString()) && !TextUtils.isEmpty(passwordEditText.getText().toString()))
+            firebaseAuth.signInWithEmailAndPassword(
+                    emailEditText.getText().toString().trim(),
+                    passwordEditText.getText().toString().trim()).addOnCompleteListener(task -> {
+                startActivity(new Intent(getContext(), MainActivity.class));
+                Objects.requireNonNull(getActivity()).finish();
+            });
+        else
+            Toast.makeText(getContext(), "Please make sure password and email aren't empty", Toast.LENGTH_SHORT).show();
+    }
+
+    @OnClick(R.id.signup_button)
     public void createUser(){
         if (!TextUtils.isEmpty(emailEditText.getText().toString()) && !TextUtils.isEmpty(passwordEditText.getText().toString()))
             firebaseAuth.createUserWithEmailAndPassword(
