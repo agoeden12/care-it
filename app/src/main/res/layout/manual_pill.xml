@@ -112,7 +112,7 @@
         android:layout_marginStart="228dp"
         android:layout_marginEnd="68dp"
         android:layout_marginBottom="182dp"
-        android:text="Button" />
+        android:text="send SMS" />
 
 
 </RelativeLayout>
