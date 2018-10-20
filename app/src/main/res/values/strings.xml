@@ -15,4 +15,10 @@
     <string name="signup_button">Create Account</string>
     <string name="my_pills_item">My Pills</string>
     <string name="my_contacts_item">My Contacts</string>
+    <string name="Username">Username</string>
+    <string name="Name">Name</string>
+    <string name="Number">Number</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
