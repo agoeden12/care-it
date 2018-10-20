@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "186519799485",
+    "firebase_url": "https://care-it-bc553.firebaseio.com",
+    "project_id": "care-it-bc553",
+    "storage_bucket": "care-it-bc553.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:186519799485:android:9a1a3f50f72fbde9",
+        "android_client_info": {
+          "package_name": "com.careitapp.care_it"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "186519799485-fp6f98bp9u7i31mo0hnb1qt169knqcbs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.careitapp.care_it",
+            "certificate_hash": "2b3b9ff425cc0567ba637985ba7d965f88b95d29"
+          }
+        },
+        {
+          "client_id": "186519799485-m3hs40l6igumfvt47ib97nhoomaj6r40.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDoPDnJRxoGbOu-as6jy14tkKcW0edh3U4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "186519799485-m3hs40l6igumfvt47ib97nhoomaj6r40.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
