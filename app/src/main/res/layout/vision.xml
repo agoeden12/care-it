@@ -8,11 +8,17 @@
     android:paddingTop="16dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    
-    <SurfaceView
-        android:id="@+id/surface_view"
+
+    <com.careitapp.care_it.camera.CameraSourcePreview
+        android:id="@+id/preview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
+
+        <com.careitapp.care_it.camera.GraphicOverlay
+            android:id="@+id/graphicOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.careitapp.care_it.camera.CameraSourcePreview>
     
     <TextView
         android:id="@+id/text_view"
