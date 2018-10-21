@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">care-it</string>
+
+    <string name="pill_name">Pill Name</string>
+    <string name="pill_start_month">Select the Month</string>
+    <string name="pill_start_day">Select the Day</string>
+    <string name="pill_start_year">Select the Year</string>
+    <string name="startdate">Start Date</string>
+    <string name="enddate">End Date</string>
+    <string name="addPill">Add Pill</string>
+    <string name="pillRep">How many times a day?</string>
+    <string name="pillReps">How many pills per session?</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="login_email_hint">Email</string>
+    <string name="login_password_hint">Password</string>
+    <string name="login_button">Login</string>
+    <string name="signup_button">Create Account</string>
+    <string name="my_pills_item">My Pills</string>
+    <string name="my_contacts_item">My Contacts</string>
 </resources>

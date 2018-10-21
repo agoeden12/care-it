@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/textInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="485dp">
+
+        <EditText
+            android:id="@+id/pillname1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/textInputLayout"
+            android:hint="type pill name"
+            android:inputType="textEmailAddress" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/dayTimes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="101dp">
+
+        <EditText
+            android:id="@+id/dayTimesText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="how many pills per session"
+            android:inputType="number" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/pillTimes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="189dp">
+
+        <EditText
+            android:id="@+id/pillTimesText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="how many times a day"
+            android:inputType="number" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/pillCounts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="246dp">
+
+        <EditText
+            android:id="@+id/pillCount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="total count"
+            android:inputType="number" />
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/pillButton"
+        android:layout_width="0dp"
+        android:layout_height="91dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginBottom="26dp"
+        android:text="add pill" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="341dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="151dp"
+        android:text='e.g. 1 if "Take 1 tablet by the mouth every 3 days"' />
+
+    <Button
+        android:id="@+id/randButn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="228dp"
+        android:layout_marginEnd="68dp"
+        android:layout_marginBottom="182dp"
+        android:text="send SMS" />
+
+
+</RelativeLayout>
