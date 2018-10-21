@@ -12,7 +12,7 @@
     <color name="gray_very_light">#E0E0E0</color>
     <color name="gray_deep">#666666</color>
     <color name="black_overlay">#66000000</color>
-    <color name="activity_background">#EEEEEE</color>
+    <color name="activity_background">#ffffff</color>
     <color name="transparent">#00000000</color>
     <color name="translucent">#70000000</color>
     <color name="main_background">#EEEEEE</color>

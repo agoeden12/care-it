@@ -63,7 +63,6 @@
         </activity>
         <activity android:name=".ContactsActvity" />
         <activity android:name=".CareGivers"/>
-        <activity android:name=".ContactsActvity"/>
         <activity android:name=".SendSMS"/>
         <activity android:name=".PillBox"/>
         <activity
