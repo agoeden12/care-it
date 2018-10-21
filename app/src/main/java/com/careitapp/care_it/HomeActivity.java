@@ -1,6 +1,10 @@
 package com.careitapp.care_it;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.os.SystemClock;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -52,6 +56,13 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         createToolbar();
         createTabs();
 
+/*        Intent notifyIntent = new Intent(this,MyReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast
+                (getApplicationContext(), 2, notifyIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        AlarmManager alarmManager = (AlarmManager) getApplicationContext().getSystemService(Context.ALARM_SERVICE);
+        int ALARM_TYPE = AlarmManager.ELAPSED_REALTIME_WAKEUP;
+        long triggerAtMillis = SystemClock.elapsedRealtime() + 600_000;
+        alarmManager.setExact(ALARM_TYPE, triggerAtMillis, pendingIntent);*/
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -134,4 +145,5 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             }
         }
     }
+
 }

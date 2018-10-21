@@ -18,4 +18,9 @@
     <string name="my_pills_item">pill box</string>
     <string name="my_contacts_item">contacts</string>
     <string name="pboxname">my pill box</string>
+    <string name="title_activity_notifications">Notifications</string>
+    <string name="notification">notificiations</string>
+    <string name="morningnote">morning time:</string>
+    <string name="afternote">afternoon time:</string>
+    <string name="nightnote">night time:</string>
 </resources>
