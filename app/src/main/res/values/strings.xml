@@ -22,10 +22,6 @@
     <string name="my_contacts_item">My Contacts</string>
     <string name="my_family_item">My Family</string>
     <string name="add">+</string>
-    <string name="Username">Username</string>
-    <string name="Name">Name</string>
-    <string name="Number">Number</string>
-
     <string name="pboxname">my pill box</string>
     <string name="title_activity_notifications">Notifications</string>
     <string name="notification">notifications</string>

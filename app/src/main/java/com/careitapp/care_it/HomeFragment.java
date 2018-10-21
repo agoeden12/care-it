@@ -69,7 +69,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 pills.clear();
-                Iterable<DataSnapshot> result = dataSnapshot.child(mUser.getUid()).getChildren();
+                Iterable<DataSnapshot> result = dataSnapshot.child(mUser.getUid()).child("pills").getChildren();
                 for (DataSnapshot itemId : result) {
                     pills.add(setPillInformation(itemId));
                 }
