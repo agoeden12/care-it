@@ -1,5 +1,6 @@
 package com.careitapp.care_it;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -66,38 +67,20 @@ public class ManualPill extends AppCompatActivity {
         }
     }
 
-//    private void addDatabaseEventListeners() {
-//        mDatabaseReference.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-////                localEventsList.clear();
-//                Iterable<DataSnapshot> result = dataSnapshot.child("").getChildren();
-//                for (DataSnapshot itemId : result) {
-////                    localEventsList.add(setEventInformation(itemId));
-//                }
-////                localEventsRecycler.setAdapter(new EventAdapter(localEventsList, mContext));
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//            }
-//        });
-//    }
-
     @OnClick(R.id.pillButton)
     public void addPill(){
         setPillInfo();
         if (newPill != null){
             mDatabaseReference.child(mUser.getUid()).push().setValue(newPill)
                     .addOnSuccessListener(aVoid -> {
-                        Toast.makeText(ManualPill.this, "Successfully added!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(this, "Successfully added!", Toast.LENGTH_LONG).show();
+                        startActivity(new Intent(this, HomeActivity.class));
                         finish();
                     });
         }
     }
-//    @OnClick(R.id.randButn)
-//    public void sendSMS(){
-//        startActivity(new Intent(ManualPill.this, SendSMS.class));
-//    }
+    @OnClick(R.id.btnSendSMS)
+    public void openVision(){
+        startActivity(new Intent(this, Vision.class));
+    }
 }

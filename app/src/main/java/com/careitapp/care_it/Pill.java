@@ -4,6 +4,9 @@ public class Pill {
 
     private String pillName,pillsPerSession,sessionsPerDay,totalPills;
 
+    Pill(){
+    }
+
     Pill(String pillName, String pillsPerSession, String sessionsPerDay, String totalPills){
         this.pillName = pillName;
         this.pillsPerSession = pillsPerSession;
