@@ -132,6 +132,7 @@ public class Vision extends AppCompatActivity {
                                 cameraSource.stop();
                                 startActivity(new Intent(Vision.this, ManualPill.class));
                             }
+
                             textView.setText(stringBuilder.toString());
                             String[] values = stringBuilder.toString().split(" ");
                             for (int i=0; i<values.length; i++) {

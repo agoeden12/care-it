@@ -29,6 +29,7 @@ public class ManualPill extends AppCompatActivity {
         addPill.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startActivity(new Intent(ManualPill.this, PillBox.class));
                 Toast.makeText(ManualPill.this, "Successfully added!", Toast.LENGTH_LONG).show();
                 }
         });
