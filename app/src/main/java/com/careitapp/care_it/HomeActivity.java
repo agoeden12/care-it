@@ -15,6 +15,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.support.design.widget.TabLayout;
+import android.widget.ListView;
+
+import com.careitapp.care_it.Contacts.AndroidContacts;
 
 import java.util.Calendar;
 import java.util.Objects;
@@ -25,6 +28,7 @@ import butterknife.OnClick;
 
 public class HomeActivity extends AppCompatActivity {
 
+    AndroidContacts contacts = new AndroidContacts("name","number");
     @BindView(R.id.home_toolbar)
     Toolbar homeToolbar;
     @BindView(R.id.home_drawer)
@@ -45,7 +49,6 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         ButterKnife.bind(this);
-
         createToolbar();
         createTabs();
     }
@@ -62,9 +65,12 @@ public class HomeActivity extends AppCompatActivity {
         homeToolbar.setTitle(R.string.app_name);
         homeNavigation.inflateMenu(R.menu.navigation_menu);
         homeNavigation.setNavigationItemSelectedListener(menuItem ->{
+
             switch (menuItem.getItemId()){
-                case (R.id.contacts_item): {
-                    startActivity(new Intent(this, ContactsActvity.class));
+                case (R.id.family_item): {
+                    Intent intent = new Intent(this, CareGivers.class);
+                    intent.putExtra(CareGivers.EXTRA_CONTACT, contacts);
+                    startActivity(intent);
                     homeDrawer.closeDrawer(GravityCompat.START);
                     return true;
                 }

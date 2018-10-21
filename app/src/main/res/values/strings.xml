@@ -19,4 +19,6 @@
     <string name="signup_button">Create Account</string>
     <string name="my_pills_item">My Pills</string>
     <string name="my_contacts_item">My Contacts</string>
+    <string name="my_family_item">My Family</string>
+    <string name="add">+</string>
 </resources>
