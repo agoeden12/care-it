@@ -63,27 +63,11 @@
         </activity>
         <activity android:name=".ContactsActvity" />
         <activity android:name=".CareGivers"/>
-        <activity android:name=".SendSMS"/>
-        <activity android:name=".PillBox"/>
         <activity android:name=".SendSMS" />
-        <activity android:name=".PillBox" />
         <activity
             android:name=".Notifications"
             android:label="@string/title_activity_notifications"
             android:theme="@style/AppTheme"></activity>
-        <receiver
-            android:name=".MyReceiver"
-            android:enabled="true"
-            android:exported="false" >
-        </receiver>
-        <service
-            android:name=".MyNewIntentService"
-            android:exported="false" >
-        </service>
-        <activity android:name=".ContactsActvity"/>
-        <activity android:name=".SendSMS"/>
-        <activity android:name=".PillBox"/>
-
     </application>
 
 </manifest>

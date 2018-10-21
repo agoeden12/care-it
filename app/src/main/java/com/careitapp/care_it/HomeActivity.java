@@ -18,6 +18,8 @@ import android.support.design.widget.TabLayout;
 import android.widget.ListView;
 
 import com.careitapp.care_it.Contacts.AndroidContacts;
+import com.google.firebase.messaging.FirebaseMessaging;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -57,7 +59,6 @@ public class HomeActivity extends AppCompatActivity {
         createTabs();
 
         FirebaseMessaging.getInstance().subscribeToTopic("updates");
-//        () -> FirebaseMessaging.getInstance().send(new RemoteMessage());
     }
 
     @Override

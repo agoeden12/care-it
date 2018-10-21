@@ -1,9 +1,13 @@
 package com.careitapp.care_it;
 
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.telephony.SmsManager;
@@ -29,6 +33,7 @@ import butterknife.ButterKnife;
 
 public class HomeFragment extends Fragment {
 
+    private static final int MY_PERMISSIONS_REQUEST_SEND_SMS = 0;
     long startTime;
     String phoneNo = "6783580275";
     String message = "Your loved one hasn't taken their medication yet! Would you like to call?";
@@ -55,12 +60,8 @@ public class HomeFragment extends Fragment {
         initializeFirebaseVariables();
         addDatabaseEventListeners();
 
-        Button secretButt = (Button) findViewById(R.id.secretBtn);
-        secretButt.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                startTime = System.currentTimeMillis();
-            }
-        });
+        Button secretButt = rootView.findViewById(R.id.secretBtn);
+        secretButt.setOnClickListener(view -> startTime = System.currentTimeMillis());
 
         long time = System.currentTimeMillis();
         Long difference = new Long(time - startTime);
@@ -75,19 +76,21 @@ public class HomeFragment extends Fragment {
     }
 
     protected void sendSMSMessage() {
-        SmsManager smsManager = SmsManager.getDefault();
-        smsManager.sendTextMessage(phoneNo, null, message, null, null);
-            /*if (ContextCompat.checkSelfPermission(this,
-                    Manifest.permission.SEND_SMS)
-                    != PackageManager.PERMISSION_GRANTED) {
-                if (ActivityCompat.shouldShowRequestPermissionRationale(this,
-                        Manifest.permission.SEND_SMS)) {
-                } else {
-                    ActivityCompat.requestPermissions(this,
-                            new String[]{Manifest.permission.SEND_SMS},
-                            MY_PERMISSIONS_REQUEST_SEND_SMS);
-                }
-            }*/
+        if (ContextCompat.checkSelfPermission(getActivity(),
+                Manifest.permission.SEND_SMS)
+                != PackageManager.PERMISSION_GRANTED) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),
+                    Manifest.permission.SEND_SMS)) {
+
+                SmsManager smsManager = SmsManager.getDefault();
+                smsManager.sendTextMessage(phoneNo, null, message, null, null);
+            } else {
+                ActivityCompat.requestPermissions(getActivity(),
+                        new String[]{Manifest.permission.SEND_SMS},
+                        MY_PERMISSIONS_REQUEST_SEND_SMS);
+            }
+        }
+
     }
 
     private void initializeRecyclerView() {
@@ -106,17 +109,17 @@ public class HomeFragment extends Fragment {
         mDatabaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-               try{
-                   pills.clear();
-                   Iterable<DataSnapshot> result = dataSnapshot.child(mUser.getUid()).child("pills").getChildren();
-                   for (DataSnapshot itemId : result) {
-                       pills.add(setPillInformation(itemId));
-                   }
-                   recyclerView.setAdapter(new PillAdapter(pills, getActivity()));
-               } catch (SecurityException e){
-                   e.printStackTrace();
-                   Toast.makeText(getContext(), "Please Login or Sign Up", Toast.LENGTH_LONG).show();
-               }
+                try {
+                    pills.clear();
+                    Iterable<DataSnapshot> result = dataSnapshot.child(mUser.getUid()).child("pills").getChildren();
+                    for (DataSnapshot itemId : result) {
+                        pills.add(setPillInformation(itemId));
+                    }
+                    recyclerView.setAdapter(new PillAdapter(pills, getActivity()));
+                } catch (SecurityException e) {
+                    e.printStackTrace();
+                    Toast.makeText(getContext(), "Please Login or Sign Up", Toast.LENGTH_LONG).show();
+                }
 
             }
 
@@ -126,7 +129,7 @@ public class HomeFragment extends Fragment {
         });
     }
 
-    private Pill setPillInformation(DataSnapshot itemId){
+    private Pill setPillInformation(DataSnapshot itemId) {
         try {
             return new Pill(
                     Objects.requireNonNull(itemId.child("pillName").getValue()).toString(),

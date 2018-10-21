@@ -114,11 +114,15 @@
 
         <ImageView
             android:id="@+id/imageView3"
-            android:layout_width="108dp"
+            android:layout_width="0dp"
             android:layout_height="93dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="138dp"
             android:src="@drawable/logo3"
-            tools:layout_editor_absoluteX="138dp"
-            tools:layout_editor_absoluteY="50dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/emailtext"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </android.support.constraint.ConstraintLayout>
 
