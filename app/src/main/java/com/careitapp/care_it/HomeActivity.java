@@ -1,6 +1,7 @@
 package com.careitapp.care_it;
 
 import android.content.Intent;
+import android.os.SystemClock;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -145,4 +146,5 @@ public class HomeActivity extends AppCompatActivity {
             }
         }
     }
+
 }
