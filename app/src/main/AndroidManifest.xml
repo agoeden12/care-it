@@ -64,7 +64,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".ContactsActvity"/>
-        <activity android:name=".SendSMS"></activity>
+        <activity android:name=".SendSMS"/>
+        <activity android:name=".PillBox"/>
     </application>
 
 </manifest>
