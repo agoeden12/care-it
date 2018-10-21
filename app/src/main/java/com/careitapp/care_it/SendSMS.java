@@ -1,6 +1,11 @@
 package com.careitapp.care_it;
 
 import android.Manifest;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -11,6 +16,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import java.util.Calendar;
 
 public class SendSMS extends AppCompatActivity {
     private static final int MY_PERMISSIONS_REQUEST_SEND_SMS =0 ;
@@ -24,8 +31,26 @@ public class SendSMS extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_send_sms);
+        String answer = "2" ;
+        String phoneNo = "673580275";
+        String message = "testing";
+        int time=Integer.parseInt(answer);
+        int num = (int)System.currentTimeMillis();
+        Intent intent = new Intent(getApplication(), BroadcastReceiver.class);
+        intent.putExtra("phoneNo",phoneNo);
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        calendar.add(Calendar.MINUTE, time);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(
+                getApplicationContext(), num, intent, 0);
+        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+        alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()
+                + calendar.getTimeInMillis() , pendingIntent);
+        Toast.makeText(getApplication(), "Alarm set in " + time + " minutes",
+                Toast.LENGTH_SHORT).show();
+    }
 
-        sendBtn = (Button) findViewById(R.id.btnSendSMS);
+/*        sendBtn = (Button) findViewById(R.id.btnSendSMS);
         txtphoneNo = (EditText) findViewById(R.id.editText);
         txtMessage = (EditText) findViewById(R.id.editText2);
 
@@ -71,5 +96,20 @@ public class SendSMS extends AppCompatActivity {
             }
         }
 
+    }*/
+
+    public void onReceive(Context context, Intent intent) {
+        String sms = "Your turn is about to come. Please be ready. Thank You";
+        String phoneNo;
+        Bundle extrasBundle = intent.getExtras();
+        phoneNo = extrasBundle.getString("phoneNo");
+        try {
+            SmsManager smsManager = SmsManager.getDefault();
+            smsManager.sendTextMessage(phoneNo, null, sms, null, null);
+            Toast.makeText(context, "SMS Sent to " + phoneNo, Toast.LENGTH_LONG).show();
+        } catch (Exception e) {
+            Toast.makeText(context, "SMS failed, please try again later!", Toast.LENGTH_LONG).show();
+            e.printStackTrace();
+        }
     }
 }

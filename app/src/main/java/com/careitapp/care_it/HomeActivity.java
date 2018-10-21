@@ -1,6 +1,7 @@
 package com.careitapp.care_it;
 
 import android.content.Intent;
+import android.os.SystemClock;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -15,6 +16,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.support.design.widget.TabLayout;
+import android.widget.ListView;
+
+import com.careitapp.care_it.Contacts.AndroidContacts;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -38,6 +42,7 @@ import butterknife.OnClick;
 
 public class HomeActivity extends AppCompatActivity {
 
+    AndroidContacts contacts = new AndroidContacts("name","number");
     @BindView(R.id.home_toolbar)
     Toolbar homeToolbar;
     @BindView(R.id.home_drawer)
@@ -60,6 +65,9 @@ public class HomeActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         createToolbar();
         createTabs();
+
+        FirebaseMessaging.getInstance().subscribeToTopic("updates");
+//        () -> FirebaseMessaging.getInstance().send(new RemoteMessage());
     }
 
     @Override
@@ -79,6 +87,8 @@ public class HomeActivity extends AppCompatActivity {
             switch (menuItem.getItemId()){
                 case (R.id.family_item): {
                     Intent intent = new Intent(this, CareGivers.class);
+                    intent.putExtra(CareGivers.EXTRA_CONTACT, contacts);
+                    startActivity(intent);
                     homeDrawer.closeDrawer(GravityCompat.START);
                     return true;
                 }

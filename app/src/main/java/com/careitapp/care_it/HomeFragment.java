@@ -1,14 +1,12 @@
 package com.careitapp.care_it;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -25,7 +23,6 @@ import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class HomeFragment extends Fragment {
 
@@ -72,7 +69,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 pills.clear();
-                Iterable<DataSnapshot> result = dataSnapshot.child(mUser.getUid()).getChildren();
+                Iterable<DataSnapshot> result = dataSnapshot.child(mUser.getUid()).child("pills").getChildren();
                 for (DataSnapshot itemId : result) {
                     pills.add(setPillInformation(itemId));
                 }

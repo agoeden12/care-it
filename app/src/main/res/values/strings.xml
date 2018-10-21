@@ -30,4 +30,9 @@
     <string name="how_many_per_session">How many per session</string>
     <string name="times_per_day">Times per day</string>
     <string name="amount_in_bottle">Amount in bottle</string>
+    <string name="title_activity_notifications">Notifications</string>
+    <string name="notification">notifications</string>
+    <string name="morningnote">morning time:</string>
+    <string name="afternote">afternoon time:</string>
+    <string name="nightnote">night time:</string>
 </resources>
