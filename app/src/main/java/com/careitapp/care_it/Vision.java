@@ -13,6 +13,8 @@ import android.util.Log;
 import android.util.SparseArray;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.gms.vision.CameraSource;
@@ -56,6 +58,15 @@ public class Vision extends AppCompatActivity {
         setContentView(R.layout.vision);
 
         ButterKnife.bind(this);
+
+        Button skipsbtn = (Button)findViewById(R.id.skipBtn);
+
+        skipsbtn.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            startActivity(new Intent(Vision.this, ManualPill.class));
+                                        }
+                                    });
 
         startCamera();
     }

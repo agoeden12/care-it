@@ -12,12 +12,43 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <TextView
+            android:id="@+id/passwordtext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="@string/pw"
+            android:textSize="36sp"
+            app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.151"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/emailtext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="@string/em"
+            android:textSize="36sp"
+            app:layout_constraintBottom_toTopOf="@+id/textInputLayout2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.114"
+            app:layout_constraintStart_toStartOf="parent" />
+
         <android.support.design.widget.TextInputLayout
             android:id="@+id/textInputLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="180dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginBottom="80dp"
+            android:background="@drawable/type_bar"
             app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -27,7 +58,6 @@
                 android:id="@+id/login_email_edittext"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/login_email_hint"
                 android:inputType="textEmailAddress"
                 android:textColor="#000000" />
         </android.support.design.widget.TextInputLayout>
@@ -37,7 +67,10 @@
             android:id="@+id/textInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginRight="40dp"
+            android:background="@drawable/type_bar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout2">
@@ -46,7 +79,6 @@
                 android:id="@+id/login_password_edittext"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/login_password_hint"
                 android:inputType="textPassword"
                 android:textColor="#000000" />
         </android.support.design.widget.TextInputLayout>
@@ -56,29 +88,37 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
-            android:layout_marginTop="268dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="12dp"
-            android:layout_marginBottom="8dp"
-            android:text="@string/login_button"
+            android:background="@drawable/loginwidebutton"
             app:layout_constraintBottom_toTopOf="@+id/signup_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
+            app:layout_constraintVertical_chainStyle="spread_inside" />
 
         <Button
             android:id="@+id/signup_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
-            android:layout_marginTop="8dp"
             android:layout_marginEnd="12dp"
-            android:layout_marginBottom="60dp"
-            android:text="@string/signup_button"
+            android:layout_marginBottom="40dp"
+            android:background="@drawable/wideforwardbutton"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/login_button" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="108dp"
+            android:layout_height="93dp"
+            android:src="@drawable/logo3"
+            tools:layout_editor_absoluteX="138dp"
+            tools:layout_editor_absoluteY="50dp" />
 
     </android.support.constraint.ConstraintLayout>
 
