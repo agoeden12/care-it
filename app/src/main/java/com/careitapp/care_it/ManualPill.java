@@ -3,22 +3,33 @@ package com.careitapp.care_it;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemSelectedListener;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
+import android.text.TextUtils;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class ManualPill extends AppCompatActivity {
-    @BindView(R.id.pillname)
+    @BindView(R.id.pillname1)
     EditText pillName;
+    @BindView(R.id.dayTimesText)
+    EditText timesPerSession;
+    @BindView(R.id.pillTimesText)
+    EditText timesPerDay;
+    @BindView(R.id.pillCount)
+    EditText amountOfPills;
 
+    private Pill newPill;
+    private FirebaseAuth mFirebaseAuth;
+    private FirebaseUser mUser;
+    private DatabaseReference mDatabaseReference;
 
     @Override
     protected void onCreate (Bundle savedInstanceState) {
@@ -26,61 +37,50 @@ public class ManualPill extends AppCompatActivity {
         setContentView(R.layout.manual_pill);
 
         ButterKnife.bind(this);
+        initializeFirebaseVariables();
 
-        Spinner monthDrop = findViewById(R.id.pill_month);
-        String[] month = new String[]{"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November","December"};
-        ArrayAdapter<String> monthAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, month);
-        monthDrop.setAdapter(monthAdapter);
-
-        Spinner dayDrop = findViewById(R.id.pill_day);
-        String[] day = new String[31];
-        for (int i=0; i<day.length; i++) {
-            int dayNum = i+1;
-            day[i] = new Integer(dayNum).toString();
+        if(getIntent() != null){
+            timesPerSession.setText(getIntent().getStringExtra("perSession"));
+            timesPerDay.setText(getIntent().getStringExtra("perDay"));
+            amountOfPills.setText(getIntent().getStringExtra("totalPills"));
         }
-        ArrayAdapter<String> dayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, day);
-        dayDrop.setAdapter(dayAdapter);
-
-        Spinner yearDrop = findViewById(R.id.pill_year);
-        String[] year = new String[21];
-        for (int j=0; j<year.length; j++) {
-            int yearNum = 2018+j;
-            year[j] = new Integer(yearNum).toString();
-        }
-        ArrayAdapter<String> yearAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, year);
-        yearDrop.setAdapter(yearAdapter);
-
-        Spinner monthDrop2 = findViewById(R.id.pill_month2);
-        String[] month2 = new String[]{"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November","December"};
-        ArrayAdapter<String> month2Adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, month2);
-        monthDrop2.setAdapter(month2Adapter);
-
-        Spinner dayDrop2 = findViewById(R.id.pill_day2);
-        String[] day2 = new String[31];
-        for (int i=0; i<day2.length; i++) {
-            int day2Num = i+1;
-            day2[i] = new Integer(day2Num).toString();
-        }
-        ArrayAdapter<String> day2Adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, day2);
-        dayDrop2.setAdapter(day2Adapter);
-
-        Spinner year2Drop = findViewById(R.id.pill_year2);
-        String[] year2 = new String[21];
-        for (int j=0; j<year2.length; j++) {
-            int year2Num = 2018+j;
-            year2[j] = new Integer(year2Num).toString();
-        }
-        ArrayAdapter<String> year2Adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, year2);
-        year2Drop.setAdapter(year2Adapter);
-
-        Button addPill = (Button) findViewById(R.id.pillButton);
-
-        addPill.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(ManualPill.this, "Success!", Toast.LENGTH_LONG).show();
-                }
-        });
     }
 
+    private void initializeFirebaseVariables() {
+        mFirebaseAuth = FirebaseAuth.getInstance();
+        mUser = mFirebaseAuth.getCurrentUser();
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference();
+    }
+
+    private void setPillInfo(){
+        if (!TextUtils.isEmpty(pillName.getText().toString().trim()) &&
+                !TextUtils.isEmpty(timesPerSession.getText().toString().trim()) &&
+                !TextUtils.isEmpty(timesPerDay.getText().toString().trim()) &&
+                !TextUtils.isEmpty(amountOfPills.getText().toString().trim())){
+           newPill = new Pill(
+                   pillName.getText().toString().trim(),
+                   timesPerSession.getText().toString().trim(),
+                   timesPerDay.getText().toString().trim(),
+                   amountOfPills.getText().toString().trim());
+        } else {
+            Toast.makeText(this, "Make sure no fields are empty", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    @OnClick(R.id.pillButton)
+    public void addPill(){
+        setPillInfo();
+        if (newPill != null){
+            mDatabaseReference.child(mUser.getUid()).push().setValue(newPill)
+                    .addOnSuccessListener(aVoid -> {
+                        Toast.makeText(this, "Successfully added!", Toast.LENGTH_LONG).show();
+                        startActivity(new Intent(this, HomeActivity.class));
+                        finish();
+                    });
+        }
+    }
+    @OnClick(R.id.btnSendSMS)
+    public void openVision(){
+        startActivity(new Intent(this, Vision.class));
+    }
 }

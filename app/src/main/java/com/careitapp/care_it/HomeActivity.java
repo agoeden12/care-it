@@ -1,6 +1,7 @@
 package com.careitapp.care_it;
 
 import android.content.Intent;
+import android.os.SystemClock;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -18,8 +19,18 @@ import android.support.design.widget.TabLayout;
 import android.widget.ListView;
 
 import com.careitapp.care_it.Contacts.AndroidContacts;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.messaging.FirebaseMessaging;
+import com.google.firebase.messaging.RemoteMessage;
 
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 import butterknife.BindView;
@@ -51,7 +62,11 @@ public class HomeActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         createToolbar();
         createTabs();
+
+        FirebaseMessaging.getInstance().subscribeToTopic("updates");
+//        () -> FirebaseMessaging.getInstance().send(new RemoteMessage());
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);

@@ -8,11 +8,11 @@
     android:paddingTop="16dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    
+
     <SurfaceView
-        android:id="@+id/surface_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:id="@+id/surface_view"/>
     
     <TextView
         android:id="@+id/text_view"
