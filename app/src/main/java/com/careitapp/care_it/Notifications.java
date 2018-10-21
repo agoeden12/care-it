@@ -46,11 +46,7 @@ public class Notifications extends AppCompatActivity {
         dropdown3.setAdapter(adapter3);
 
         Button secretButt = (Button) findViewById(R.id.secretBtn);
-        secretButt.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                startTime = System.currentTimeMillis();
-            }
-        });
+        secretButt.setOnClickListener(view -> startTime = System.currentTimeMillis());
 
         long time = System.currentTimeMillis();
         Long difference = new Long(time - startTime);

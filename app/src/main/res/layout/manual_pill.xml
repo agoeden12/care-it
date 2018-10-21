@@ -103,7 +103,7 @@
         android:text='e.g. 1 if "Take 1 tablet by the mouth every 3 days"' />
 
     <Button
-        android:id="@+id/btnSendSMS"
+        android:id="@+id/open_camera_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/pillButton"

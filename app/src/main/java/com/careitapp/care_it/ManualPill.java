@@ -79,7 +79,7 @@ public class ManualPill extends AppCompatActivity {
                     });
         }
     }
-    @OnClick(R.id.btnSendSMS)
+    @OnClick(R.id.open_camera_button)
     public void openVision(){
         startActivity(new Intent(this, Vision.class));
     }

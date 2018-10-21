@@ -82,6 +82,12 @@ public class HomeActivity extends AppCompatActivity {
         homeNavigation.setNavigationItemSelectedListener(menuItem ->{
 
             switch (menuItem.getItemId()){
+                case (R.id.notification_item):{
+                    startActivity(new Intent(this, Notifications.class));
+                    homeDrawer.closeDrawer(GravityCompat.START);
+                    return true;
+                }
+
                 case (R.id.family_item): {
                     Intent intent = new Intent(this, CareGivers.class);
                     intent.putExtra(CareGivers.EXTRA_CONTACT, contacts);
