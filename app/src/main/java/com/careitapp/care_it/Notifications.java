@@ -54,7 +54,7 @@ public class Notifications extends AppCompatActivity {
 
         long time = System.currentTimeMillis();
         Long difference = new Long(time - startTime);
-        Long base = new Long(1200000000);
+        Long base = new Long(480000000);
         int comparison = difference.compareTo(base);
 
         if (comparison > 0) {
