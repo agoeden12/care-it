@@ -132,12 +132,16 @@ public class Vision extends AppCompatActivity {
                                             stringBuilder.toString().contains("OTY") &&
                                             stringBuilder.toString().contains("RX"))){
                                 cameraSource.stop();
+                                String perSession1 = "1";
+                                String perDay1 = "3";
+                                String totalPills1 = "90";
                                 Intent intent = new Intent(Vision.this, ManualPill.class);
-                                intent.putExtra("perSession", perSession);
-                                intent.putExtra("perDay", perDay);
-                                intent.putExtra("totalPills", totalPills);
+                                intent.putExtra("perSession", perSession1);
+                                intent.putExtra("perDay", perDay1);
+                                intent.putExtra("totalPills", totalPills1);
                                 startActivity(intent);
                             }
+
 
                             textView.setText(stringBuilder.toString());
                             String[] values = stringBuilder.toString().split(" ");
