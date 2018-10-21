@@ -1,9 +1,10 @@
 package com.careitapp.care_it;
 
 import android.Manifest;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
@@ -163,4 +164,16 @@ public class Vision extends AppCompatActivity {
             });
         }
     }
+
+    public static class MyReceiver extends BroadcastReceiver {
+            public MyReceiver() {
+            }
+
+            @Override
+            public void onReceive(Context context, Intent intent) {
+
+                Intent intent1 = new Intent(context, MyNewIntentService.class);
+                context.startService(intent1);
+            }
+        }
 }
