@@ -1,7 +1,9 @@
 package com.careitapp.care_it;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
@@ -103,6 +105,11 @@ public class Vision extends AppCompatActivity {
 
                 }
 
+                String rxNum;
+                String perSession;
+                String perDay;
+                String totalPills;
+
                 @Override
                 public void receiveDetections(Detector.Detections<TextBlock> detections) {
                     final SparseArray<TextBlock> items = detections.getDetectedItems();
@@ -114,7 +121,41 @@ public class Vision extends AppCompatActivity {
                                 stringBuilder.append(item.getValue());
                                 stringBuilder.append("\n");
                             }
+                            if ((stringBuilder.toString().contains("TAKE") &&
+                                    stringBuilder.toString().contains("TIMES") &&
+                                    stringBuilder.toString().contains("QTY") &&
+                                    stringBuilder.toString().contains("RX")) ||
+                                    (stringBuilder.toString().contains("TAKE") &&
+                                            stringBuilder.toString().contains("TIMES") &&
+                                            stringBuilder.toString().contains("OTY") &&
+                                            stringBuilder.toString().contains("RX"))){
+                                cameraSource.stop();
+                                startActivity(new Intent(Vision.this, ManualPill.class));
+                            }
                             textView.setText(stringBuilder.toString());
+                            String[] values = stringBuilder.toString().split(" ");
+                            for (int i=0; i<values.length; i++) {
+                                if (values[i].equals("RX")) {
+                                    rxNum = values[i+1];
+                                }
+                                if (values[i].equals("TAKE")) {
+                                    if ((values[i]+1).equals("ONE")){
+                                        perSession = "1";
+                                    }
+                                    else {
+                                        perSession = values[i+1];
+                                    }
+                                }
+                                if (values[i].equals("TIMES")) {
+                                    if (values[i-1].equals("THREE")) {
+                                        perDay = "3";
+                                    }
+                                    else {perDay = values[i-1]; }
+                                }
+                                if (values[i].equals("QTY")) {
+                                    totalPills = values[i+1];
+                                }
+                            }
                         });
                     }
                 }
