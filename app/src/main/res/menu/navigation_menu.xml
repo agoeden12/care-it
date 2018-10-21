@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/pills_item"
-        android:title="@string/my_pills_item"
+        android:id="@+id/notification_item"
+        android:title="@string/my_notification_item"
         android:icon="@drawable/ic_people_24dp"
         />
 

@@ -57,7 +57,10 @@ public class CareGivers extends AppCompatActivity {
         initializeRecyclerView();
         addDatabaseEventListeners();
 
-        toolbar.setNavigationOnClickListener(view -> onBackPressed());
+        toolbar.setNavigationOnClickListener(view -> {
+            startActivity(new Intent(this, HomeActivity.class));
+            finish();
+        });
     }
 
     private void initializeRecyclerView() {
