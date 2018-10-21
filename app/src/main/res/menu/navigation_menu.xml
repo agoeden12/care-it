@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
     <item
         android:id="@+id/notification_item"
         android:title="@string/my_notification_item"
@@ -10,4 +11,6 @@
         android:id="@+id/family_item"
         android:icon="@drawable/ic_people_24dp"
         android:title="@string/my_family_item" />
+
+    </group>
 </menu>

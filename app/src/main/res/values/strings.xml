@@ -1,8 +1,5 @@
 <resources>
     <string name="app_name">care-it</string>
-    <string name="Username">Username</string>
-    <string name="Name">Name</string>
-    <string name="Number">Number</string>
 
     <string name="pill_name">Pill Name</string>
     <string name="pill_start_month">Select the Month</string>
@@ -22,6 +19,11 @@
     <string name="my_contacts_item">My Contacts</string>
     <string name="my_family_item">My Family</string>
     <string name="add">+</string>
+    <string name="my_pills_item">pill box</string>
+    <string name="my_contacts_item">contacts</string>
+    <string name="Username">Username</string>
+    <string name="Name">Name</string>
+    <string name="Number">Number</string>
     <string name="pboxname">my pill box</string>
     <string name="title_activity_notifications">Notifications</string>
     <string name="notification">notifications</string>
@@ -29,4 +31,6 @@
     <string name="afternote">afternoon time:</string>
     <string name="nightnote">night time:</string>
     <string name="back">return</string>
+    <string name="pw">password</string>
+    <string name="em">email</string>
 </resources>
