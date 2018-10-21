@@ -121,17 +121,6 @@ public class Vision extends AppCompatActivity {
                                 stringBuilder.append(item.getValue());
                                 stringBuilder.append("\n");
                             }
-                            if ((stringBuilder.toString().contains("TAKE") &&
-                                    stringBuilder.toString().contains("TIMES") &&
-                                    stringBuilder.toString().contains("QTY") &&
-                                    stringBuilder.toString().contains("RX")) ||
-                                    (stringBuilder.toString().contains("TAKE") &&
-                                            stringBuilder.toString().contains("TIMES") &&
-                                            stringBuilder.toString().contains("OTY") &&
-                                            stringBuilder.toString().contains("RX"))){
-                                cameraSource.stop();
-                                startActivity(new Intent(Vision.this, ManualPill.class));
-                            }
 
                             textView.setText(stringBuilder.toString());
                             String[] values = stringBuilder.toString().split(" ");
@@ -156,6 +145,22 @@ public class Vision extends AppCompatActivity {
                                 if (values[i].equals("QTY")) {
                                     totalPills = values[i+1];
                                 }
+                            }
+
+                            if ((stringBuilder.toString().contains("TAKE") &&
+                                    stringBuilder.toString().contains("TIMES") &&
+                                    stringBuilder.toString().contains("QTY") &&
+                                    stringBuilder.toString().contains("RX")) ||
+                                    (stringBuilder.toString().contains("TAKE") &&
+                                            stringBuilder.toString().contains("TIMES") &&
+                                            stringBuilder.toString().contains("OTY") &&
+                                            stringBuilder.toString().contains("RX"))){
+                                cameraSource.stop();
+                                Intent intent = new Intent(Vision.this, ManualPill.class);
+                                intent.putExtra("perSession", perSession);
+                                intent.putExtra("perDay", perDay);
+                                intent.putExtra("totalPills", totalPills);
+                                startActivity(intent);
                             }
                         });
                     }

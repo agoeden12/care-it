@@ -2,21 +2,21 @@ package com.careitapp.care_it;
 
 public class Pill {
 
-    private String pillTitle,pillsPerSession,sessionsPerDay,totalPills;
+    private String pillName,pillsPerSession,sessionsPerDay,totalPills;
 
     Pill(String pillName, String pillsPerSession, String sessionsPerDay, String totalPills){
-        this.pillTitle = pillName;
+        this.pillName = pillName;
         this.pillsPerSession = pillsPerSession;
         this.sessionsPerDay = sessionsPerDay;
         this.totalPills = totalPills;
     }
 
-    public String getPillTitle() {
-        return pillTitle;
+    public String getPillName() {
+        return pillName;
     }
 
-    public void setPillTitle(String pillTitle) {
-        this.pillTitle = pillTitle;
+    public void setPillName(String pillName) {
+        this.pillName = pillName;
     }
 
     public String getPillsPerSession() {

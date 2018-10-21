@@ -26,7 +26,6 @@ public class ManualPill extends AppCompatActivity {
     EditText amountOfPills;
 
     private Pill newPill;
-    private String pillTitle;
     private FirebaseAuth mFirebaseAuth;
     private FirebaseUser mUser;
     private DatabaseReference mDatabaseReference;
@@ -38,6 +37,12 @@ public class ManualPill extends AppCompatActivity {
 
         ButterKnife.bind(this);
         initializeFirebaseVariables();
+
+        if(getIntent() != null){
+            timesPerSession.setText(getIntent().getStringExtra("perSession"));
+            timesPerDay.setText(getIntent().getStringExtra("perDay"));
+            amountOfPills.setText(getIntent().getStringExtra("totalPills"));
+        }
     }
 
     private void initializeFirebaseVariables() {
@@ -56,7 +61,6 @@ public class ManualPill extends AppCompatActivity {
                    timesPerSession.getText().toString().trim(),
                    timesPerDay.getText().toString().trim(),
                    amountOfPills.getText().toString().trim());
-           pillTitle = pillName.getText().toString().trim();
         } else {
             Toast.makeText(this, "Make sure no fields are empty", Toast.LENGTH_LONG).show();
         }
@@ -84,11 +88,13 @@ public class ManualPill extends AppCompatActivity {
     @OnClick(R.id.pillButton)
     public void addPill(){
         setPillInfo();
-        mDatabaseReference.child(mUser.getUid()).push().setValue(newPill)
-                .addOnSuccessListener(aVoid -> {
-                    Toast.makeText(ManualPill.this, "Successfully added!", Toast.LENGTH_LONG).show();
-                    finish();
-        });
+        if (newPill != null){
+            mDatabaseReference.child(mUser.getUid()).push().setValue(newPill)
+                    .addOnSuccessListener(aVoid -> {
+                        Toast.makeText(ManualPill.this, "Successfully added!", Toast.LENGTH_LONG).show();
+                        finish();
+                    });
+        }
     }
 //    @OnClick(R.id.randButn)
 //    public void sendSMS(){
