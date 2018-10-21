@@ -9,6 +9,8 @@
     <string name="enddate">End Date</string>
     <string name="addPill">Add Pill</string>
     <string name="pillRep">How many times a day?</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="pillRep">How many times a day?</string>
     <string name="pillReps">How many pills per session?</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="login_email_hint">Email</string>
@@ -17,11 +19,8 @@
     <string name="signup_button">Create Account</string>
     <string name="my_pills_item">My Pills</string>
     <string name="my_contacts_item">My Contacts</string>
-    <string name="pboxname">my pill box</string>
-    <string name="title_activity_notifications">Notifications</string>
-    <string name="notification">notifications</string>
-    <string name="morningnote">morning time:</string>
-    <string name="afternote">afternoon time:</string>
-    <string name="nightnote">night time:</string>
-    <string name="back">return</string>
+    <string name="Username">Username</string>
+    <string name="Name">Name</string>
+    <string name="Number">Number</string>
+
 </resources>
