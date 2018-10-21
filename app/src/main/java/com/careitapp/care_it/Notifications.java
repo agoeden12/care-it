@@ -19,9 +19,6 @@ import android.widget.Toast;
 
 public class Notifications extends AppCompatActivity {
     //private static final int MY_PERMISSIONS_REQUEST_SEND_SMS =0 ;
-    long startTime;
-    String phoneNo = "6783580275";
-    String message = "Your loved one hasn't taken their medication yet! Would you like to call?";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,38 +42,8 @@ public class Notifications extends AppCompatActivity {
         ArrayAdapter<String> adapter3 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items3);
         dropdown3.setAdapter(adapter3);
 
-        Button secretButt = (Button) findViewById(R.id.secretBtn);
-        secretButt.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                startTime = System.currentTimeMillis();
-            }
-        });
-
-        long time = System.currentTimeMillis();
-        Long difference = new Long(time - startTime);
-        Long base = new Long(480000000);
-        int comparison = difference.compareTo(base);
-
-        if (comparison > 0) {
-            sendSMSMessage();
-        }
     }
 
-        protected void sendSMSMessage() {
-            SmsManager smsManager = SmsManager.getDefault();
-            smsManager.sendTextMessage(phoneNo, null, message, null, null);
-            /*if (ContextCompat.checkSelfPermission(this,
-                    Manifest.permission.SEND_SMS)
-                    != PackageManager.PERMISSION_GRANTED) {
-                if (ActivityCompat.shouldShowRequestPermissionRationale(this,
-                        Manifest.permission.SEND_SMS)) {
-                } else {
-                    ActivityCompat.requestPermissions(this,
-                            new String[]{Manifest.permission.SEND_SMS},
-                            MY_PERMISSIONS_REQUEST_SEND_SMS);
-                }
-            }*/
-        }
 
        /* @Override
         public void onRequestPermissionsResult(int requestCode,String permissions[], int[] grantResults)

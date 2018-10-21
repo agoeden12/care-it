@@ -6,9 +6,11 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.telephony.SmsManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -26,6 +28,9 @@ import butterknife.ButterKnife;
 
 public class HomeFragment extends Fragment {
 
+    long startTime;
+    String phoneNo = "6783580275";
+    String message = "Your loved one hasn't taken their medication yet! Would you like to call?";
     private FirebaseAuth mFirebaseAuth;
     private FirebaseUser mUser;
     private DatabaseReference mDatabaseReference;
@@ -49,7 +54,39 @@ public class HomeFragment extends Fragment {
         initializeFirebaseVariables();
         addDatabaseEventListeners();
 
+        Button secretButt = (Button) findViewById(R.id.secretBtn);
+        secretButt.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                startTime = System.currentTimeMillis();
+            }
+        });
+
+        long time = System.currentTimeMillis();
+        Long difference = new Long(time - startTime);
+        Long base = new Long(480000000);
+        int comparison = difference.compareTo(base);
+
+        if (comparison > 0) {
+            sendSMSMessage();
+        }
+
         return rootView;
+    }
+
+    protected void sendSMSMessage() {
+        SmsManager smsManager = SmsManager.getDefault();
+        smsManager.sendTextMessage(phoneNo, null, message, null, null);
+            /*if (ContextCompat.checkSelfPermission(this,
+                    Manifest.permission.SEND_SMS)
+                    != PackageManager.PERMISSION_GRANTED) {
+                if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                        Manifest.permission.SEND_SMS)) {
+                } else {
+                    ActivityCompat.requestPermissions(this,
+                            new String[]{Manifest.permission.SEND_SMS},
+                            MY_PERMISSIONS_REQUEST_SEND_SMS);
+                }
+            }*/
     }
 
     private void initializeRecyclerView() {
