@@ -15,7 +15,7 @@
     <string name="login_password_hint">Password</string>
     <string name="login_button">Login</string>
     <string name="signup_button">Create Account</string>
-    <string name="my_pills_item">My Pills</string>
-    <string name="my_contacts_item">My Contacts</string>
+    <string name="my_pills_item">pill box</string>
+    <string name="my_contacts_item">contacts</string>
     <string name="pboxname">my pill box</string>
 </resources>

@@ -8,8 +8,11 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-public class PillBox extends AppCompatActivity {
+import java.util.ArrayList;
+import java.util.List;
 
+public class PillBox extends AppCompatActivity {
+    private List<PillTest> pillsList = new ArrayList<>();
     private RecyclerView pillRecyclerView;
     private RecyclerView.Adapter pillRecyclerAdapter;
     private RecyclerView.LayoutManager pillRecyclerManager;
@@ -18,6 +21,8 @@ public class PillBox extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pill_box);
+
+        pillRecyclerView = findViewById(R.id.pillRec);
 
         // use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
@@ -29,9 +34,20 @@ public class PillBox extends AppCompatActivity {
 
         // specify an adapter (see also next example)
         String[] testerDataset = {"this","is","a","test"};
-        pillRecyclerAdapter = new MyAdapter(testerDataset);
+        pillRecyclerAdapter = new MyAdapter(pillsList);
         pillRecyclerView.setAdapter(pillRecyclerAdapter);
 
+        preparePillsList();
+    }
 
+    private void preparePillsList(){
+        PillTest pill = new PillTest("60","2","3");
+        pillsList.add(pill);
+        pill = new PillTest("90","1","1");
+        pillsList.add(pill);
+        pill = new PillTest("90","1","1");
+        pillsList.add(pill);
+        pill = new PillTest("test","strings","yeah");
+        pillsList.add(pill);
     }
 }
