@@ -1,6 +1,7 @@
 package com.careitapp.care_it;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -53,7 +54,7 @@ public class Notifications extends AppCompatActivity {
 
         long time = System.currentTimeMillis();
         Long difference = new Long(time - startTime);
-        Long base = new Long(12000000);
+        Long base = new Long(1200000000);
         int comparison = difference.compareTo(base);
 
         if (comparison > 0) {
