@@ -26,7 +26,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_pill"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:contentDescription="TODO" />
 
             <TextView
                 android:id="@+id/pill_name"

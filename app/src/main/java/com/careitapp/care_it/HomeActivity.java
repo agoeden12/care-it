@@ -60,9 +60,6 @@ public class HomeActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         createToolbar();
         createTabs();
-
-        FirebaseMessaging.getInstance().subscribeToTopic("updates");
-//        () -> FirebaseMessaging.getInstance().send(new RemoteMessage());
     }
 
     @Override
@@ -82,8 +79,6 @@ public class HomeActivity extends AppCompatActivity {
             switch (menuItem.getItemId()){
                 case (R.id.family_item): {
                     Intent intent = new Intent(this, CareGivers.class);
-                    intent.putExtra(CareGivers.EXTRA_CONTACT, contacts);
-                    startActivity(intent);
                     homeDrawer.closeDrawer(GravityCompat.START);
                     return true;
                 }

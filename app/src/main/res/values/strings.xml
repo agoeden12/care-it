@@ -22,9 +22,12 @@
     <string name="my_contacts_item">My Contacts</string>
     <string name="my_family_item">My Family</string>
     <string name="add">+</string>
-    <string name="Username">Username</string>
-    <string name="Name">Name</string>
-    <string name="Number">Number</string>
 
     <string name="pboxname">my pill box</string>
+    <string name="takePicture">Take A Picture</string>
+    <string name="e_g_1_if_take_1_tablet_by_the_mouth_every_3_days">e.g. 1 if Take 1 tablet by the mouth every 3 days</string>
+    <string name="medicine_name">Medicine Name</string>
+    <string name="how_many_per_session">How many per session</string>
+    <string name="times_per_day">Times per day</string>
+    <string name="amount_in_bottle">Amount in bottle</string>
 </resources>

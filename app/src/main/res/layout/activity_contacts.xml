@@ -15,7 +15,7 @@ android:layout_height="match_parent">
     <android.support.v7.widget.RecyclerView
         android:id="@+id/contact_recycler"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="523dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:scrollbars="vertical" />
