@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
     <item
-        android:id="@+id/pills_item"
+        android:id="@id/pillBoxActivity"
         android:title="@string/my_pills_item"
         android:icon="@drawable/ic_people_24dp"
         />
-
     <item
         android:id="@+id/people_item"
         android:title="@string/my_contacts_item"
         android:icon="@drawable/ic_people_24dp"
         />
+    </group>
 </menu>
