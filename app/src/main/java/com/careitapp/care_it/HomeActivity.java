@@ -23,14 +23,21 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.messaging.FirebaseMessaging;
+import com.google.firebase.messaging.RemoteMessage;
+
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class HomeActivity extends AppCompatActivity {
 
     @BindView(R.id.home_toolbar)
     Toolbar homeToolbar;
@@ -63,29 +70,33 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         int ALARM_TYPE = AlarmManager.ELAPSED_REALTIME_WAKEUP;
         long triggerAtMillis = SystemClock.elapsedRealtime() + 600_000;
         alarmManager.setExact(ALARM_TYPE, triggerAtMillis, pendingIntent);*/
+        FirebaseMessaging.getInstance().subscribeToTopic("updates");
+//        () -> FirebaseMessaging.getInstance().send(new RemoteMessage());
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
         return true;
     }
 
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-        switch (menuItem.getItemId()){
-            //TODO: add cases for each navigation page
-
-            default:
-                return true;
-        }
-    }
-
     private void createToolbar(){
-        homeToolbar.setNavigationIcon(R.drawable.nav_drawer);
+        homeToolbar.setNavigationIcon(R.drawable.ic_menu_white_24dp);
         homeToolbar.setNavigationOnClickListener(view -> homeDrawer.openDrawer(GravityCompat.START));
         homeToolbar.setTitleTextColor(getResources().getColor(R.color.white));
         homeToolbar.setTitle(R.string.app_name);
         homeNavigation.inflateMenu(R.menu.navigation_menu);
+        homeNavigation.setNavigationItemSelectedListener(menuItem ->{
+            switch (menuItem.getItemId()){
+                case (R.id.contacts_item): {
+                    startActivity(new Intent(this, ContactsActvity.class));
+                    homeDrawer.closeDrawer(GravityCompat.START);
+                    return true;
+                }
+                default:
+                    return true;
+            }
+        });
     }
 
     private void createTabs(){
@@ -145,5 +156,4 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             }
         }
     }
-
 }

@@ -17,6 +17,12 @@
     <string name="signup_button">Create Account</string>
     <string name="my_pills_item">pill box</string>
     <string name="my_contacts_item">contacts</string>
+    <string name="my_pills_item">My Pills</string>
+    <string name="my_contacts_item">My Contacts</string>
+    <string name="Username">Username</string>
+    <string name="Name">Name</string>
+    <string name="Number">Number</string>
+
     <string name="pboxname">my pill box</string>
     <string name="title_activity_notifications">Notifications</string>
     <string name="notification">notificiations</string>

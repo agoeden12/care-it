@@ -122,6 +122,7 @@ public class Vision extends AppCompatActivity {
                                 stringBuilder.append(item.getValue());
                                 stringBuilder.append("\n");
                             }
+
                             if ((stringBuilder.toString().contains("TAKE") &&
                                     stringBuilder.toString().contains("TIMES") &&
                                     stringBuilder.toString().contains("QTY") &&
@@ -131,7 +132,11 @@ public class Vision extends AppCompatActivity {
                                             stringBuilder.toString().contains("OTY") &&
                                             stringBuilder.toString().contains("RX"))){
                                 cameraSource.stop();
-                                startActivity(new Intent(Vision.this, ManualPill.class));
+                                Intent intent = new Intent(Vision.this, ManualPill.class);
+                                intent.putExtra("perSession", perSession);
+                                intent.putExtra("perDay", perDay);
+                                intent.putExtra("totalPills", totalPills);
+                                startActivity(intent);
                             }
 
                             textView.setText(stringBuilder.toString());
