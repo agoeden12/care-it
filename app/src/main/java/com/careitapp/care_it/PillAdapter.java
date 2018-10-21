@@ -50,6 +50,8 @@ public class PillAdapter extends RecyclerView.Adapter<PillAdapter.MyViewHolder> 
 
         holder.itemView.setOnClickListener(v -> {
             pillList.remove(position);
+            notifyItemRemoved(position);
+
         });
 
     }
