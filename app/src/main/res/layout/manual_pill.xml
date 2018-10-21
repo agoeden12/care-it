@@ -15,149 +15,100 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="0dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="36dp"
         android:layout_marginEnd="0dp"
-        android:layout_marginBottom="496dp">
+        android:layout_marginBottom="485dp">
 
         <EditText
-            android:id="@+id/pillname"
+            android:id="@+id/pillname1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/textInputLayout"
-            android:hint="@string/pill_name"
+            android:hint="Medicine Name"
             android:inputType="textEmailAddress" />
     </android.support.design.widget.TextInputLayout>
 
-    <Spinner
-        android:id="@+id/pill_month"
-        android:layout_width="100dp"
-        android:layout_height="19dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-
-        android:layout_marginStart="23dp"
-        android:layout_marginTop="120dp"
-        android:hint="@string/pill_start_month" />
-
-    <Spinner
-        android:id="@+id/pill_month2"
-        android:layout_width="100dp"
-        android:layout_height="19dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="23dp"
-        android:layout_marginTop="170dp"
-        android:layout_marginBottom="378dp"
-        android:hint="@string/pill_start_month" />
-
-    <Spinner
-        android:id="@+id/pill_day"
-        android:layout_width="100dp"
-        android:layout_height="19dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="11dp"
-        android:layout_marginTop="120dp"
-        android:layout_marginEnd="13dp"
-        android:layout_toStartOf="@+id/pill_year"
-        android:layout_toEndOf="@+id/pill_month"
-        android:hint="@string/pill_start_day" />
-
-    <Spinner
-        android:id="@+id/pill_day2"
-        android:layout_width="100dp"
-        android:layout_height="19dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="11dp"
-        android:layout_marginTop="170dp"
-        android:layout_marginEnd="13dp"
-        android:layout_marginBottom="378dp"
-        android:layout_toStartOf="@+id/pill_year"
-        android:layout_toEndOf="@+id/pill_month"
-        android:hint="@string/pill_start_day" />
-
-    <Spinner
-        android:id="@+id/pill_year"
-        android:layout_width="100dp"
-        android:layout_height="19dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="120dp"
-        android:layout_marginEnd="23dp"
-        android:hint="@string/pill_start_year" />
-
-    <Spinner
-        android:id="@+id/pill_year2"
-        android:layout_width="100dp"
-        android:layout_height="19dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="170dp"
-        android:layout_marginEnd="23dp"
-        android:layout_marginBottom="378dp"
-        android:hint="@string/pill_start_year" />
-
-    <TextView
-        android:id="@+id/start_date"
-        android:layout_width="75dp"
-        android:layout_height="22dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="85dp"
-        android:layout_marginEnd="305dp"
-        android:layout_marginBottom="460dp"
-        android:text="@string/startdate" />
-
-    <TextView
-        android:id="@+id/start_date2"
-        android:layout_width="75dp"
-        android:layout_height="22dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="145dp"
-        android:layout_marginEnd="303dp"
-        android:layout_marginBottom="400dp"
-        android:text="@string/enddate" />
-
-    <Button
-        android:id="@+id/pillButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="147dp"
-        android:layout_marginTop="305dp"
-        android:layout_marginEnd="149dp"
-        android:layout_marginBottom="214dp"
-        android:text="@string/addPill" />
-
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/textInputLayout2"
+        android:id="@+id/dayTimes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="217dp">
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="101dp">
 
         <EditText
-            android:id="@+id/pillRep"
+            android:id="@+id/dayTimesText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/textInputLayout2"
-            android:hint="@string/pillRep"
-            android:inputType="textEmailAddress" />
+            android:hint="How many per session"
+            android:inputType="number" />
     </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/pillTimes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="189dp">
+
+        <EditText
+            android:id="@+id/pillTimesText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Times per day"
+            android:inputType="number" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/pillCounts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="246dp">
+
+        <EditText
+            android:id="@+id/pillCount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Amount in bottle"
+            android:inputType="number" />
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/pillButton"
+        android:layout_width="0dp"
+        android:layout_height="91dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginBottom="26dp"
+        android:text="Add Pill" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="341dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="151dp"
+        android:text='e.g. 1 if "Take 1 tablet by the mouth every 3 days"' />
+
+    <Button
+        android:id="@+id/btnSendSMS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/pillButton"
+        android:layout_centerHorizontal="true"
+        android:text="Take A Picture" />
 
 
 </RelativeLayout>
