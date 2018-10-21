@@ -22,6 +22,7 @@ import android.widget.EditText;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.messaging.FirebaseMessaging;
+import com.google.firebase.messaging.RemoteMessage;
 
 import java.util.Calendar;
 import java.util.HashMap;
@@ -59,6 +60,7 @@ public class HomeActivity extends AppCompatActivity {
         createTabs();
 
         FirebaseMessaging.getInstance().subscribeToTopic("updates");
+//        () -> FirebaseMessaging.getInstance().send(new RemoteMessage());
     }
 
     @Override
