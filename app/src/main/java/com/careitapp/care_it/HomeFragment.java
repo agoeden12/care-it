@@ -33,5 +33,4 @@ public class HomeFragment extends Fragment {
     public void openVision(){
         startActivity(new Intent(getContext(), Vision.class));
     }
-
 }

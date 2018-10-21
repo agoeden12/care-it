@@ -60,7 +60,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void createToolbar(){
-        homeToolbar.setNavigationIcon(R.drawable.nav_drawer);
+        homeToolbar.setNavigationIcon(R.drawable.ic_menu_white_24dp);
         homeToolbar.setNavigationOnClickListener(view -> homeDrawer.openDrawer(GravityCompat.START));
         homeToolbar.setTitleTextColor(getResources().getColor(R.color.white));
         homeToolbar.setTitle(R.string.app_name);

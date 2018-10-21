@@ -77,8 +77,4 @@
         android:fitsSystemWindows="true"
         android:id="@+id/home_navigation"/>
 
-    sendBtn = (Button) findViewById(R.id.btnSendSMS);
-    txtphoneNo = (EditText) findViewById(R.id.editText);
-    txtMessage = (EditText) findViewById(R.id.editText2);
-
 </android.support.v4.widget.DrawerLayout>
