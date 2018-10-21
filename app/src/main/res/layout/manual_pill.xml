@@ -102,17 +102,17 @@
         android:layout_marginTop="151dp"
         android:text='e.g. 1 if "Take 1 tablet by the mouth every 3 days"' />
 
-    <!--<Button-->
-        <!--android:id="@+id/randButn"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_alignParentStart="true"-->
-        <!--android:layout_alignParentEnd="true"-->
-        <!--android:layout_alignParentBottom="true"-->
-        <!--android:layout_marginStart="228dp"-->
-        <!--android:layout_marginEnd="68dp"-->
-        <!--android:layout_marginBottom="182dp"-->
-        <!--android:text="Button" />-->
+    <Button
+        android:id="@+id/randButn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="228dp"
+        android:layout_marginEnd="68dp"
+        android:layout_marginBottom="182dp"
+        android:text="send SMS" />
 
 
 </RelativeLayout>
