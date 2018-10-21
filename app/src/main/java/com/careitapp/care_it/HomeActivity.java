@@ -1,9 +1,5 @@
 package com.careitapp.care_it;
 
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.Context;
 import android.content.Intent;
 import android.os.SystemClock;
 import android.support.annotation.NonNull;
@@ -20,19 +16,21 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.support.design.widget.TabLayout;
+import android.widget.ListView;
+
+import com.careitapp.care_it.Contacts.AndroidContacts;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.app.AlarmManager;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import android.app.Activity;
-import android.os.SystemClock;
-import android.view.Menu;
-import android.view.MenuItem;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.messaging.FirebaseMessaging;
+import com.google.firebase.messaging.RemoteMessage;
 
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 import butterknife.BindView;
@@ -41,6 +39,7 @@ import butterknife.OnClick;
 
 public class HomeActivity extends AppCompatActivity {
 
+    AndroidContacts contacts = new AndroidContacts("name","number");
     @BindView(R.id.home_toolbar)
     Toolbar homeToolbar;
     @BindView(R.id.home_drawer)
@@ -61,22 +60,32 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         ButterKnife.bind(this);
-
         createToolbar();
         createTabs();
 
+        FirebaseMessaging.getInstance().subscribeToTopic("updates");
+//        () -> FirebaseMessaging.getInstance().send(new RemoteMessage());
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        return true;
     }
 
     private void createToolbar(){
-        homeToolbar.setNavigationIcon(R.drawable.nav_drawer);
+        homeToolbar.setNavigationIcon(R.drawable.ic_menu_white_24dp);
         homeToolbar.setNavigationOnClickListener(view -> homeDrawer.openDrawer(GravityCompat.START));
         homeToolbar.setTitleTextColor(getResources().getColor(R.color.white));
         homeToolbar.setTitle(R.string.app_name);
         homeNavigation.inflateMenu(R.menu.navigation_menu);
         homeNavigation.setNavigationItemSelectedListener(menuItem ->{
+
             switch (menuItem.getItemId()){
-                case (R.id.contacts_item): {
-                    startActivity(new Intent(this, ContactsActvity.class));
+                case (R.id.family_item): {
+                    Intent intent = new Intent(this, CareGivers.class);
+                    intent.putExtra(CareGivers.EXTRA_CONTACT, contacts);
+                    startActivity(intent);
                     homeDrawer.closeDrawer(GravityCompat.START);
                     return true;
                 }
@@ -143,5 +152,4 @@ public class HomeActivity extends AppCompatActivity {
             }
         }
     }
-
 }

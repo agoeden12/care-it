@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/textInputLayout"
-            android:hint="type pill name"
+            android:hint="Medicine Name"
             android:inputType="textEmailAddress" />
     </android.support.design.widget.TextInputLayout>
 
@@ -41,7 +41,7 @@
             android:id="@+id/dayTimesText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="how many pills per session"
+            android:hint="How many per session"
             android:inputType="number" />
     </android.support.design.widget.TextInputLayout>
 
@@ -58,7 +58,7 @@
             android:id="@+id/pillTimesText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="how many times a day"
+            android:hint="Times per day"
             android:inputType="number" />
     </android.support.design.widget.TextInputLayout>
 
@@ -76,7 +76,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="total count"
+            android:hint="Amount in bottle"
             android:inputType="number" />
     </android.support.design.widget.TextInputLayout>
 
@@ -84,13 +84,13 @@
         android:id="@+id/pillButton"
         android:layout_width="0dp"
         android:layout_height="91dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="0dp"
         android:layout_marginRight="0dp"
         android:layout_marginBottom="26dp"
-        android:text="add pill" />
+        android:text="Add Pill" />
 
     <TextView
         android:id="@+id/textView2"
@@ -103,16 +103,12 @@
         android:text='e.g. 1 if "Take 1 tablet by the mouth every 3 days"' />
 
     <Button
-        android:id="@+id/randButn"
+        android:id="@+id/btnSendSMS"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="228dp"
-        android:layout_marginEnd="68dp"
-        android:layout_marginBottom="182dp"
-        android:text="Button" />
+        android:layout_above="@+id/pillButton"
+        android:layout_centerHorizontal="true"
+        android:text="Take A Picture" />
 
     <Button
         android:id="@+id/randButn2"
