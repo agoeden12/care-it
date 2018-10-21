@@ -24,6 +24,7 @@
         app:layout_constraintVertical_bias="0.066" />
 
     <android.support.v7.widget.RecyclerView
+        android:id="@+id/pillRec"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="16dp"
