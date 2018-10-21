@@ -42,6 +42,15 @@ public class ManualPill extends AppCompatActivity {
                 startActivity(new Intent(ManualPill.this, SendSMS.class));
             }
         });
+
+        Button btnRand2 = (Button)findViewById(R.id.randButn2);
+
+        btnRand2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ManualPill.this, Notifications.class));
+            }
+        });
     }
 
 }

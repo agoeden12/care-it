@@ -1,6 +1,7 @@
 package com.careitapp.care_it;
 
-import android.app.AlarmManager;
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
@@ -22,6 +23,14 @@ import android.support.design.widget.TabLayout;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.app.AlarmManager;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.app.Activity;
+import android.os.SystemClock;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import java.util.Calendar;
 import java.util.Objects;
@@ -56,18 +65,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         createToolbar();
         createTabs();
 
-/*        Intent notifyIntent = new Intent(this,MyReceiver.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast
-                (getApplicationContext(), 2, notifyIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-        AlarmManager alarmManager = (AlarmManager) getApplicationContext().getSystemService(Context.ALARM_SERVICE);
-        int ALARM_TYPE = AlarmManager.ELAPSED_REALTIME_WAKEUP;
-        long triggerAtMillis = SystemClock.elapsedRealtime() + 600_000;
-        alarmManager.setExact(ALARM_TYPE, triggerAtMillis, pendingIntent);*/
-    }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        super.onCreateOptionsMenu(menu);
-        return true;
     }
 
     @Override

@@ -3,6 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.careitapp.care_it">
 
+    <uses-sdk
+
+        android:minSdkVersion="17"
+
+        android:targetSdkVersion="17" />
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
@@ -48,15 +54,7 @@
             android:name=".Notifications"
             android:label="@string/title_activity_notifications"
             android:theme="@style/AppTheme"></activity>
-        <receiver
-            android:name=".MyReceiver"
-            android:enabled="true"
-            android:exported="false" >
-        </receiver>
-        <service
-            android:name=".MyNewIntentService"
-            android:exported="false" >
-        </service>
+
     </application>
 
 </manifest>
