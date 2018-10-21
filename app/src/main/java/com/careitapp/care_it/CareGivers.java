@@ -107,6 +107,7 @@ public class CareGivers extends AppCompatActivity {
     public void openContactsActivity() {
         Intent intent = new Intent(this,ContactsActvity.class);
         startActivity(intent);
+        finish();
     }
 
 }

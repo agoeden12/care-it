@@ -14,7 +14,7 @@ import butterknife.ButterKnife;
 
 public class PillAdapter extends RecyclerView.Adapter<PillAdapter.MyViewHolder> {
 
-    private final List<Pill> merchList;
+    private final List<Pill> pillList;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.pill_name) TextView pillName;
@@ -27,8 +27,8 @@ public class PillAdapter extends RecyclerView.Adapter<PillAdapter.MyViewHolder> 
     }
 
 
-    PillAdapter(List<Pill> merchList, Context mContext) {
-        this.merchList = merchList;
+    PillAdapter(List<Pill> pillList, Context mContext) {
+        this.pillList = pillList;
     }
 
     @Override
@@ -43,21 +43,19 @@ public class PillAdapter extends RecyclerView.Adapter<PillAdapter.MyViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull final MyViewHolder holder, int position) {
-        Pill pill = merchList.get(position);
+        Pill pill = pillList.get(position);
         Log.d("onDataChange", "in view holder: " + pill.getPillName());
         holder.pillName.setText(pill.getPillName());
         holder.pillTimeline.setText("Take " + pill.getPillsPerSession() + " pills, " + pill.getSessionsPerDay() + " times a day.");
 
-//        holder.itemView.setOnClickListener(v -> {
-//            Intent intent = new Intent(mContext.getApplicationContext(), Pill.class);
-//            intent.putExtra("Pill_Key", "" + holder.getAdapterPosition());
-//            mContext.startActivity(intent);
-//        });
+        holder.itemView.setOnClickListener(v -> {
+            pillList.remove(position);
+        });
 
     }
 
     @Override
     public int getItemCount() {
-        return merchList.size();
+        return pillList.size();
     }
 }

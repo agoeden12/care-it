@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -68,12 +69,17 @@ public class HomeFragment extends Fragment {
         mDatabaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                pills.clear();
-                Iterable<DataSnapshot> result = dataSnapshot.child(mUser.getUid()).child("pills").getChildren();
-                for (DataSnapshot itemId : result) {
-                    pills.add(setPillInformation(itemId));
-                }
-                recyclerView.setAdapter(new PillAdapter(pills, getActivity()));
+               try{
+                   pills.clear();
+                   Iterable<DataSnapshot> result = dataSnapshot.child(mUser.getUid()).child("pills").getChildren();
+                   for (DataSnapshot itemId : result) {
+                       pills.add(setPillInformation(itemId));
+                   }
+                   recyclerView.setAdapter(new PillAdapter(pills, getActivity()));
+               } catch (SecurityException e){
+                   e.printStackTrace();
+                   Toast.makeText(getContext(), "Please Login or Sign Up", Toast.LENGTH_LONG).show();
+               }
 
             }
 

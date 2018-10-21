@@ -48,9 +48,15 @@ public class Notifications extends AppCompatActivity {
         Button secretButt = (Button) findViewById(R.id.secretBtn);
         secretButt.setOnClickListener(view -> startTime = System.currentTimeMillis());
 
+        Button returnButton = (Button) findViewById(R.id.backBtn);
+        returnButton.setOnClickListener(view -> {
+            startActivity(new Intent(this, HomeActivity.class));
+            finish();
+        });
+
         long time = System.currentTimeMillis();
         Long difference = new Long(time - startTime);
-        Long base = new Long(1200000000);
+        Long base = new Long(480000000);
         int comparison = difference.compareTo(base);
 
         if (comparison > 0) {
