@@ -18,11 +18,14 @@ import android.support.design.widget.TabLayout;
 import android.widget.ListView;
 
 import com.careitapp.care_it.Contacts.AndroidContacts;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.messaging.FirebaseMessaging;
+import com.google.firebase.messaging.RemoteMessage;
 
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 
 import java.util.Calendar;
@@ -57,6 +60,18 @@ public class HomeActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         createToolbar();
         createTabs();
+
+        if (getIntent().getBooleanExtra("notif", false)){
+
+            FirebaseMessaging fm = FirebaseMessaging.getInstance();
+            fm.send(new RemoteMessage.Builder("updates")
+                    .setMessageId("0")
+                    .addData("my_message", "Good job for adding pills!")
+                    .addData("Topic", "updates")
+                    .setTtl(10)
+                    .setMessageType("updates")
+                    .build());
+        }
 
         FirebaseMessaging.getInstance().subscribeToTopic("updates");
     }

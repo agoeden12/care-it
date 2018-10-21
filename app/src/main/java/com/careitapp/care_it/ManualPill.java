@@ -74,7 +74,9 @@ public class ManualPill extends AppCompatActivity {
             mDatabaseReference.child(mUser.getUid()).child("pills").push().setValue(newPill)
                     .addOnSuccessListener(aVoid -> {
                         Toast.makeText(this, "Successfully added!", Toast.LENGTH_LONG).show();
-                        startActivity(new Intent(this, HomeActivity.class));
+                        Intent intent = new Intent(this, HomeActivity.class);
+                        intent.putExtra("notif", true);
+                        startActivity(intent);
                         finish();
                     });
         }
