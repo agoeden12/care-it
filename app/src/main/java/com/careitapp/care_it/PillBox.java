@@ -33,7 +33,6 @@ public class PillBox extends AppCompatActivity {
         pillRecyclerView.setLayoutManager(pillRecyclerManager);
 
         // specify an adapter (see also next example)
-        String[] testerDataset = {"this","is","a","test"};
         pillRecyclerAdapter = new MyAdapter(pillsList);
         pillRecyclerView.setAdapter(pillRecyclerAdapter);
 
@@ -41,13 +40,13 @@ public class PillBox extends AppCompatActivity {
     }
 
     private void preparePillsList(){
-        PillTest pill = new PillTest("60","2","3");
+        PillTest pill = new PillTest("60","2","3","pill1");
         pillsList.add(pill);
-        pill = new PillTest("90","1","1");
+        pill = new PillTest("90","1","1","claratin");
         pillsList.add(pill);
-        pill = new PillTest("90","1","1");
+        pill = new PillTest("90","1","1","sleep pill");
         pillsList.add(pill);
-        pill = new PillTest("test","strings","yeah");
+        pill = new PillTest("test","strings","yeah","blah");
         pillsList.add(pill);
     }
 }

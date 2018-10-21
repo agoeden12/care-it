@@ -24,31 +24,12 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.066" />
 
-    <TextView
-        android:id="@+id/pillsTotal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:textStyle="bold" />
-    <TextView
-        android:id="@+id/perSession"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/pillsTotal" />
-    <TextView
-        android:id="@+id/perDay"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/perSession" />
-
     <android.support.v7.widget.RecyclerView
         android:id="@+id/pillRec"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="102dp"
+        android:layout_marginTop="116dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
